@@ -1,0 +1,20 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "properties": {
+        "apiVersion": {
+            "type": "string"
+        },
+        "kind": {
+            "type": "string"
+        },
+        "metadata": {
+            "type": "object"
+        }
+    },
+    "required": [
+      "apiVersion",
+      "kind",
+      "metadata"
+    ],
+    "type": "object"
+}

@@ -1,0 +1,6 @@
+apiVersion: v2
+name: as-is
+description: A Helm chart, but raw yaml of Kubernetes Resource
+version: 0.1.0
+home: https://github.com/shoma/helm-chart-as-is
+deprecated: false
