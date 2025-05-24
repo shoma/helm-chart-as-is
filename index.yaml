@@ -1,0 +1,13 @@
+apiVersion: v1
+entries:
+  as-is:
+  - apiVersion: v2
+    created: "2025-05-24T10:53:20.982234+09:00"
+    description: A Helm chart, but raw yaml of Kubernetes Resource
+    digest: 064413cc17f66b7affb3691026d9fede3e144df42df1220064b7aa07410f5e14
+    home: https://github.com/shoma/helm-chart-as-is
+    name: as-is
+    urls:
+    - as-is-0.1.0.tgz
+    version: 0.1.0
+generated: "2025-05-24T10:53:20.982257+09:00"
