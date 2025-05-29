@@ -69,4 +69,20 @@ releases:
       - values.yaml.gotmpl # This file generates the full K8s manifest
 ```
 
-In this scenario, the `as-is` chart's `templates/resource.yaml` (which contains `{{- toYaml .Values }}`) will simply take the fully formed YAML output by `values.yaml.gotmpl` and present it as the final Kubernetes resource.
+An example `values.yaml.gotmpl` for this setup might look like:
+
+```gotmpl
+# values.yaml.gotmpl
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Environment.Values.appName | default "my-app" }}-config
+data:
+  greeting: "Hello, {{ .Environment.Values.name | default "World" }}!"
+  anotherValue: "{{ .Values.customValue | default "default from chart" }}"
+```
+
+The processing flow is as follows:
+1. `helmfile` first processes `values.yaml.gotmpl`. It uses its Go templating engine to resolve any template variables (like `{{ .Environment.Values.appName }}` or `{{ .Values.customValue }}`) and generates a standard YAML output.
+2. This pure YAML output is then passed as the complete values structure (`.Values`) to the `as-is` Helm chart.
+3. The `as-is` chart's `templates/resource.yaml` (which simply contains `{{- toYaml .Values }}`) then takes this already-processed YAML and renders it directly as the final Kubernetes manifest.
