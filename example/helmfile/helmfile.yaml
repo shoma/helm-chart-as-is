@@ -1,0 +1,13 @@
+environments:
+  default:
+    values:
+      - default.yaml
+  prod:
+    values:
+      - prod.yaml
+---
+releases:
+  - name: dynamic-manifest
+    chart: ./..
+    values:
+      - values.yaml.gotmpl
